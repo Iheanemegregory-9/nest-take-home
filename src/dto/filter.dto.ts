@@ -1,9 +1,15 @@
 export class FilterDTO{
     name?: string;
 
-    capacity?: string
+    capacity?: string;
 
-    id?: number
+    id?: number;
 
-    userId?: number
+    userId?: number;
+
+    sort? : string;
+    
+    field?: string;
+
+    order?: string;
 }

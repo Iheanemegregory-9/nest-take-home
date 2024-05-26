@@ -13,8 +13,9 @@ export class AppController {
   getRooms(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number = 1,
     @Query('limit', new DefaultValuePipe(5), ParseIntPipe) limit: number = 5,
-    @Query() filter: FilterDTO
+    @Query() filter: FilterDTO,
   ): Promise<Pagination<DemoEntity>> {
+    console.log(filter);
     
     return this.appService.getRooms({
       page,

@@ -26,23 +26,19 @@ export class AppService {
   }
 
   async getRooms(option: IPaginationOptions, filterOption: FilterDTO): Promise<Pagination<DemoEntity>> {
-    const { capacity, name, id, userId } = filterOption
+    const { capacity, name, id, userId, field, order, sort } = filterOption
 
     const queryBuilder = this.demoEntity.createQueryBuilder('rooms')
-
-    queryBuilder.orderBy({
-      'rooms.id': 'ASC',
-      'rooms.name': 'ASC',
-      'rooms.capacity': 'ASC',
-      'rooms.userId': 'ASC',
-    })
+ 
+   queryBuilder.orderBy(`rooms.${field}`, order as 'ASC' | 'DESC')
+  
     capacity && queryBuilder.andWhere('rooms.capacity = :capacity', {capacity})
 
     name && queryBuilder.andWhere('rooms.name LIKE(:name)', {name: `%${name}%`})
 
     id && queryBuilder.andWhere('rooms.id = :id', {id})
 
-    userId && queryBuilder.andWhere('rooms.userId = :userId', {userId})
+    userId && queryBuilder.andWhere('rooms.userId = :userId', {userId}) 
     
     return paginate<DemoEntity>(queryBuilder, option)
   }
