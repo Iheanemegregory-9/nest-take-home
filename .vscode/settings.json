@@ -1,0 +1,12 @@
+{
+    "[markdown]": {
+        "diffEditor.wordWrap": "on"
+    },
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "files.autoSave": "afterDelay",
+    "editor.wordWrap": "on",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.smoothScrolling": true,
+    "editor.tabCompletion": "on"
+}
